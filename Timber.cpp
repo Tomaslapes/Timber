@@ -16,6 +16,10 @@ int main(){
     Texture treeTex;
     treeTex.loadFromFile("graphics/tree.png");
 
+    Texture cloudTex;
+    cloudTex.loadFromFile("graphics/cloud.png");
+    
+
     Sprite bgSprite;
     bgSprite.setTexture(bgTexture);
     bgSprite.setPosition(0,0);
@@ -28,7 +32,8 @@ int main(){
     treeSprite.setTexture(treeTex);
     treeSprite.setPosition(300,0);
 
-    int x = 0;
+    int beeSpeed = 1;
+    bool beeIsActive = false;
 
     while (window.isOpen()){
 
@@ -41,13 +46,14 @@ int main(){
 
         window.draw(bgSprite);
         window.draw(treeSprite);
+        if(beeIsActive){
+            beeSprite.setPosition(beeSpeed,200);
+        }
         
-        beeSprite.setPosition(x,200);
         window.draw(beeSprite);
         
 
         window.display();
-        x++;
 
     }
 
